@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Response</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_chat.css') }}">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" type="image/x-icon" href="static/images/logo.png">
+</head>
+<body>
+    <span class="backbutton"><a href="{{ url_for('index') }}"><button class="pushable">
+        <span class="shadow"></span>
+        <span class="edge"></span>
+        <span class="front">
+            <span class="material-symbols-outlined">
+                keyboard_return</span>
+        </span>
+          </button></a></span>
+    
+    <div class="title">
+        <img src="static/images/logo.png" class="logo">
+        <h1>BonsAI</h1>
+    </div>
+        <div class="content">
+          <div class="input" id="input">
+            <h2>Let's see how sustainable your lifestyle is!</h2>
+                <input type="text" id="item_input" placeholder='Enter an activity you do often (e.g., shower for 20 minutes)'>
+            
+            <div style="margin-top: 5px;"><button id = "get_response_button" class="pushable">
+              <span class="shadow"></span>
+              <span class="edge"></span>
+              <span class="front">
+              <span class="material-symbols-outlined">
+                rocket_launch
+                </span>
+              </span>
+              </button></a></span>
+            </div>
+          </div>
+
+            <div id = "response"></div>
+        </div>
+
+        <script>
+            const itemInput = document.getElementById('item_input');
+            const itemList = document.getElementById('item_list');
+            const itemDisplay = document.getElementById('item_display');
+            let i = 0;
+            let items = ['1'];
+
+
+
+
+    const getResponseButton = document.getElementById('get_response_button');
+            // Get response button functionality.
+            getResponseButton.addEventListener('click', () => {
+              let prompt = itemInput.value;
+
+              items.push(prompt);
+    // Get the list of items
+    /**const items = Array.from(itemList.children).map(item => item.textContent.trim());
+    for (i = 0; i < itemList.length; i++) {
+      items.push(item.textContent.trim());
+    }
+    **/
+    console.log(items)
+    const responseDiv = document.getElementById('response');
+    // Disable input and button
+    itemInput.disabled = true;
+    getResponseButton.disabled = true;
+
+    document.getElementById("input").style.display = "none";
+
+    // Send a POST request to Flask
+    fetch('/get_response', {
+      method: 'POST',
+      body: JSON.stringify({ items }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    .then(response => response.json())
+    .then(json => {
+      // Enable input and button
+      const chatgptResponse = json.response;
+      console.log(JSON.stringify(chatgptResponse));
+      responseDiv.innerText = chatgptResponse['choices'][0]['message']['content'];
+      itemInput.disabled = false;
+      getResponseButton.disabled = false;
+    })
+    .catch(error => {
+      // Enable input and button
+      itemInput.disabled = false;
+      getResponseButton.disabled = false;
+
+      console.error(error);
+    });
+  });
+        </script>
+</body>
+</html>

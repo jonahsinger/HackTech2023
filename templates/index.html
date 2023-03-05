@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Raleway">
+    <title>BonsAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> 
+    <link rel="icon" type="image/x-icon" href="static/images/logo.png">
+
+  </head>
+
+  <body>
+
+    <div class="outer">
+        <div class="middle">
+          <div class="inner">
+            <div class="splashEncloser">
+                <div class="title">
+                    <img src="static/images/logo.png" class="logo">
+                    <h1>BonsAI</h1>
+                </div>
+        
+                <div class="select">
+                    <a href="{{ url_for('reduce') }}">
+                    <button class="pushable">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                        Reduce
+                        </span>
+                    </button>
+                    </a>
+                    <a href="{{ url_for('reuse') }}">
+                      <button class="pushable">
+                          <span class="shadow"></span>
+                          <span class="edge"></span>
+                          <span class="front">
+                          Reuse
+                          </span>
+                        </button>
+                      </a>
+                    <a href="{{ url_for('recycle') }}">
+                      <button class="pushable">
+                          <span class="shadow"></span>
+                          <span class="edge"></span>
+                          <span class="front">
+                          Recycle
+                          </span>
+                        </button>
+                      </a>
+                      <a href="{{ url_for('impact') }}">
+                      <button class="pushable">
+                          <span class="shadow"></span>
+                          <span class="edge"></span>
+                          <span class="front">
+                          IMPACT
+                          </span>
+                      </button>
+                      </a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
