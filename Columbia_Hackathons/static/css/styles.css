@@ -1,0 +1,236 @@
+body {
+  background-color: #DBF227;
+  font-family: Raleway;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+.title {
+  text-align: center;
+  margin-bottom: -2em;
+}
+
+h1 {
+  font-family: "Futura Heavy";
+  color: #005C53;
+  font-size: 5rem;
+  display: inline-block;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+.logo {
+  display: inline-block;
+  width: 5rem;
+}
+
+#item_input {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1em;
+  width: 30vw;
+  padding: .5em;
+  border: .3em solid #042940;
+  border-radius: 1em;
+  margin: auto;
+}
+
+.input {
+  transition: height 1000ms;
+}
+
+.btn-3d {
+  background-color: #4CAF50; /* Green background color */
+  border: none; /* Remove borders */
+  color: white; /* White text color */
+  padding: 15px 32px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Make button inline */
+  font-size: 16px; /* Font size */
+  margin: 4px 2px; /* Margin */
+  cursor: pointer; /* Add cursor on hover */
+  position: relative; /* Set position to relative */
+}
+
+.btn-3d:after {
+  content: ""; /* Add content */
+  position: absolute; /* Set position to absolute */
+  z-index: -1; /* Set z-index to -1 */
+  top: 10px; /* Set top value */
+  left: 20px; /* Set left value */
+  width: 100%; /* Set width */
+  height: 100%; /* Set height */
+  background-color: #333; /* Dark background color */
+  transform: rotateX(45deg) rotateY(0deg) rotateZ(0deg); /* Rotate button */
+  transition: all 0.5s ease-in-out; /* Add transition */
+}
+
+.btn-3d:hover:after {
+  top: -5px; /* Change top value on hover */
+  left: 5px; /* Change left value on hover */
+  background-color: #666; /* Change background color on hover */
+}
+
+@font-face {
+  font-family: 'Futura Bold Italic';
+  src: url('/static/fonts/Futura Bold Italic font.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Futura Bold';
+  src: url('/static/fonts/Futura Bold font.ttf') format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Futura Extra Black';
+  src: url('/static/fonts/Futura\ Extra\ Black\ font.ttf') format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Futura Heavy';
+  src: url('/static/fonts/Futura\ Heavy\ font.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Futura Book Italic';
+  src: url('/static/fonts/Futura Book Italic font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+.select{
+  text-align: center;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vw;
+  text-align: center;
+  /* Whatever width you want */
+}
+
+/* Add similar @font-face rules for other fonts in your folder */
+
+/* Use the fonts in your CSS rules */
+.pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  width: 20m;
+}
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(340deg 100% 16%) 0%,
+    hsl(340deg 100% 32%) 8%,
+    hsl(340deg 100% 32%) 92%,
+    hsl(340deg 100% 16%) 100%
+  );
+}
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+.pushable:hover {
+  filter: brightness(110%);
+}
+.pushable:hover .front {
+  transform: translateY(-6px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+.pushable:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+.pushable:hover .shadow {
+  transform: translateY(4px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+.pushable:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+ul {
+  list-style:none ;
+}
