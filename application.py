@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 
 # Set up OpenAI API key
-openai.api_key = 'XXX'
+openai.api_key = os.environ['OPEN_API_KEY']
 
 @app.route("/")
 def index():
